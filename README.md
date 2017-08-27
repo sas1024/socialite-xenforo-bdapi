@@ -2,6 +2,7 @@
 
 ## Installation and config
 Install Larvel Socialite (see here: https://github.com/laravel/socialite/blob/2.0/readme.md)
+
 Install the [bd] Api to your XenForo installation (see here: https://github.com/xfrocks/bdApi)
 
 Install the XenForo [bd] Api socialite provider
