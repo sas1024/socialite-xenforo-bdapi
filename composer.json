@@ -1,0 +1,28 @@
+{
+    "name": "sas1024/socialite-xenforo-bdapi",
+    "description": "XenForo over [bd] Api OAuth2 Provider for Laravel Socialite",
+    "license": "MIT",
+    "authors": [{
+        "name": "Aleksandr Korelskiy",
+        "email": "emu.sas@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.5.9",
+        "socialiteproviders/manager": "^2.0"
+    },
+    "keywords": [
+        "oauth",
+        "oauth2",
+        "client",
+        "authorization",
+        "authorisation",
+        "xenforo",
+        "bdapi",
+        "laravel"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sas1024\\Socialite\\XenForo\\": "src/"
+        }
+    }
+}
