@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialiteProviders\XenForo;
+namespace Sas1024\Socialite\XenForo;
 
 use Laravel\Socialite\Two\ProviderInterface;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
@@ -15,6 +15,11 @@ class Provider extends AbstractProvider implements ProviderInterface
 
     const ADMIN_ROLE = 3;
 
+    public static function additionalConfigKeys()
+    {
+        return ['xenforo_url'];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -25,7 +30,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(env('XENFORO_SOCIALITE_HOST') . 'oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase($this->config['xenforo_url'] . 'oauth/authorize', $state);
     }
 
     /**
@@ -33,7 +38,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return env('XENFORO_SOCIALITE_HOST') . 'oauth/token';
+        return $this->config['xenforo_url'] . 'oauth/token';
     }
 
     /**
@@ -41,7 +46,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(env('XENFORO_SOCIALITE_HOST') . 'users/me?oauth_token='. $token);
+        $response = $this->getHttpClient()->get($this->config['xenforo_url'] . 'users/me?oauth_token='. $token);
 
         return json_decode($response->getBody(), true);
     }

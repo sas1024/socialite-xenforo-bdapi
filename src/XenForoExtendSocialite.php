@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialiteProviders\XenForo;
+namespace Sas1024\Socialite\XenForo;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
